@@ -5,6 +5,7 @@ import Login from '../views/login'
 import UserMsg from '../views/user_msg'
 import Goods from '../views/goods'
 import Order from '../views/order'
+import Home from '../views/home'
 
 Vue.use(Router)
 
@@ -13,8 +14,9 @@ const router=new Router({
   mode:'history',
   routes: [
     {path: '/',name: 'login',component: Login},
-    {path: '/Index',name: 'index',component: Index,redirect:"/UserMsg",
+    {path: '/Index',name: 'index',component: Index,redirect:"/Home",
       children:[
+        {path: '/Home',name: 'home',component: Home},
         {path: '/UserMsg',name: 'userMsg',component: UserMsg},
         {path: '/Goods',name: 'goods',component: Goods},
         {path: '/Order',name: 'order',component: Order}
