@@ -4,6 +4,10 @@
 
 <script>
 export default {
-    
+    method:{
+        aa(){
+            console.log('测试');
+        }
+    }
 }
 </script>
