@@ -24,6 +24,10 @@ axios.defaults.baseURL="/liyi"
 //引入公共样式
 import './assets/global.css'
 
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
 Vue.config.productionTip = false
 //使用路由
 Vue.use(router)

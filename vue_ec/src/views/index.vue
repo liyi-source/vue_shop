@@ -1,8 +1,11 @@
 <template>
     <el-container class="main_container">
-        <el-header>
-            <div>管理系统</div>
-            <el-button type="info" @click="exit">退出</el-button>
+        <el-header height="60px">
+            <div class="head_top">
+                <div>管理系统</div>
+                <el-button type="info" size="small" @click="exit">退出</el-button>
+            </div>
+            
         </el-header>
         <el-container>
             <el-aside width="200px">
@@ -35,24 +38,25 @@
         name:"index",
         data(){
           return{
-            menuList: [
-              {"id":"100","menuName":"首页","icon":"el-icon-s-grid","path":"",
-                "children":[
-                  {"id":"1001","menuName":"首页","icon":"el-icon-menu","path":"/Home"}
-                ]},
-              {"id":"101","menuName":"用户管理","icon":"el-icon-user-solid","path":"",
-                "children":[
-                  {"id":"1011","menuName":"用户列表","icon":"el-icon-menu","path":"/UserMsg"}
-                ]
-              },
-              {"id":"102","menuName":"商品管理","icon":"el-icon-s-goods","path":"",
-                "children":[
-                  {"id":"2011","menuName":"商品列表","icon":"el-icon-menu","path":"/Goods",},
-                  {"id":"2012","menuName":"购物列表","icon":"el-icon-menu","path":"/Order",}
-                ]
-              },
-              {"id":"103","menuName":"订单管理","icon":"el-icon-sell","path":"",}
-            ]
+            menuList: []
+            //   {"id":"100","menuName":"首页","icon":"el-icon-s-grid","path":"",
+            //     "children":[
+            //       {"id":"1001","menuName":"首页","icon":"el-icon-menu","path":"/Home"}
+            //     ]
+            //   },
+            //   {"id":"101","menuName":"用户管理","icon":"el-icon-user-solid","path":"",
+            //     "children":[
+            //       {"id":"1011","menuName":"用户列表","icon":"el-icon-menu","path":"/UserMsg"}
+            //     ]
+            //   },
+            //   {"id":"102","menuName":"商品管理","icon":"el-icon-s-goods","path":"",
+            //     "children":[
+            //       {"id":"2011","menuName":"商品列表","icon":"el-icon-menu","path":"/Goods",},
+            //       {"id":"2012","menuName":"购物列表","icon":"el-icon-menu","path":"/Order",}
+            //     ]
+            //   },
+            //   {"id":"103","menuName":"订单管理","icon":"el-icon-sell","path":"","children":[]}
+            // ]
           }
         },
         methods:{
@@ -64,7 +68,7 @@
             // },
             queryMeuns(){
               this.$axios.get("/queryMenus").then((res)=>{
-                // this.menuList=res.data;
+                this.menuList=res.data;
               })
             },
             exit(){
@@ -80,11 +84,16 @@
 <style scoped>
     .el-header{
         background-color: #3d4850;
+        
+        font-size:20px;
+        color:#ffffff;
+    }
+    .head_top{
+        height:100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size:20px;
-        color:#ffffff;
+        /* border:1px solid blue; */
     }
     .el-header div{
         display: flex;
